@@ -548,6 +548,12 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+@media (max-width: 920px) {
+  /* Ẩn ảnh khi kích thước màn hình nhỏ hơn hoặc bằng 768px */
+  .avatar-container {
+      display: none;
+  }
+}
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
