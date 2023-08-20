@@ -85,3 +85,77 @@ $(document).ready(function () {
   });
 });
 
+// Chuyển tab bằng giọng nói
+let recognition;
+let isRecording = false;
+let isInitialOk = false;
+let recordedText = ''; // Thêm lại biến recordedText
+
+// Khởi tạo đối tượng SpeechRecognition để nhận diện giọng nói
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.continuous = true;
+
+    // Xử lý sự kiện kết quả từ việc nhận diện giọng nói
+    recognition.onresult = event => {
+        const transcript = event.results[event.results.length - 1][0].transcript;
+        console.log("Đã nhận dạng:", transcript);
+
+        // Xử lý khi người dùng nói 'ok' lần đầu để bắt đầu ghi âm
+        if (!isRecording && transcript.toLowerCase().includes('ok')) {
+            if (!isInitialOk) {
+                alert("Kết nối thành công");
+                isInitialOk = true;
+            }
+            console.log("Bắt đầu ghi âm");
+            isRecording = true;
+            recordedText = ''; // Reset giá trị recordedText
+        }
+        // Xử lý khi đang ghi âm và người dùng nói các từ để chuyển đến liên kết tương ứng
+        else if (isRecording) {
+            recordedText += transcript;
+
+            if (transcript.toLowerCase().includes('1')) {
+                window.location.href = '#about';
+                animateLink('#about');
+            } else if (transcript.toLowerCase().includes('2')) {
+                window.location.href = '#experience';
+                animateLink('#experience');
+            } else if (transcript.toLowerCase().includes('3')) {
+                window.location.href = '#education';
+                animateLink('#education');
+            } else if (transcript.toLowerCase().includes('4')) {
+                window.location.href = '#skills';
+                animateLink('#skills');
+            } else if (transcript.toLowerCase().includes('5')) {
+                window.location.href = '#interests';
+                animateLink('#interests');
+            } else if (transcript.toLowerCase().includes('6')) {
+                window.location.href = '#awards';
+                animateLink('#awards');
+            }
+            // Hàm để áp dụng animation và sau đó xóa lớp "animated" sau khi hoàn thành
+            function animateLink(link) {
+                const linkElement = document.querySelector(link);
+                linkElement.classList.add('animated');
+                linkElement.addEventListener('animationend', () => {
+                    linkElement.classList.remove('animated');
+                });
+            }
+        }
+    };
+
+    // Xử lý sự kiện khi đối tượng SpeechRecognition kết thúc
+    recognition.onend = () => {
+        if (isRecording) {
+            recognition.start(); // Bắt đầu lại nhận diện sau khi kết thúc
+        }
+    };
+
+    // Tự động bắt đầu nhận diện khi trang được tải
+    window.onload = () => {
+        recognition.start();
+    };
+} else {
+    alert('Trình duyệt không hỗ trợ chức năng này.');
+}
