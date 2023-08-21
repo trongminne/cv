@@ -149,7 +149,9 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
           "https://m.youtube.com/channel/UCG2AfXQ9zIggntyjNa9_z5w";
       } else if (transcript.toLowerCase().includes("9")) {
         window.location.href = "https://www.tiktok.com/@trongmin12";
-      } 
+      } else if (transcript.toLowerCase().includes("ai")) {
+        window.location.href = "https://www.tiktok.com/@trongmin12";
+      }
       // Hàm để áp dụng animation và sau đó xóa lớp "animated" sau khi hoàn thành
       function animateLink(link) {
         const linkElement = document.querySelector(link);
