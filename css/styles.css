@@ -87,11 +87,11 @@ body {
 /* animation chuyển tab */
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 .animated {
@@ -687,6 +687,12 @@ pre code {
   /* Ẩn ảnh khi kích thước màn hình nhỏ hơn hoặc bằng 768px */
   .avatar-container {
     display: none;
+  }
+  /* image kỹ năng */
+  .image_kinang {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
   }
 }
 @media (min-width: 576px) {
