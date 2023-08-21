@@ -105,7 +105,7 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     // Xử lý khi người dùng nói 'ok' lần đầu để bắt đầu ghi âm
     if (!isRecording && transcript.toLowerCase().includes("hello")) {
       if (!isInitialOk) {
-        alert("Kết nối thành công");
+        alert("Kết nối mic thành công");
         isInitialOk = true;
       }
       console.log("Bắt đầu ghi âm");
@@ -114,15 +114,15 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     } // Xử lý khi người dùng nói 'kết thúc' để dừng việc ghi âm
     else if (isRecording && transcript.toLowerCase().includes("kết thúc")) {
       console.log("Kết thúc ghi âm");
-      alert("Đã kết thúc ghi âm");
       isRecording = false;
       recordedText = ""; // Reset giá trị recordedText
       recognition.stop(); // Dừng việc nhận diện giọng nói
+      alert("Đã kết thúc ghi âm");
+
     }
     // Xử lý khi đang ghi âm và người dùng nói các từ để chuyển đến liên kết tương ứng
     else if (isRecording) {
       recordedText += transcript;
-
       if (transcript.toLowerCase().includes("1")) {
         window.location.href = "#about";
         animateLink("#about");
@@ -149,9 +149,7 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
           "https://m.youtube.com/channel/UCG2AfXQ9zIggntyjNa9_z5w";
       } else if (transcript.toLowerCase().includes("9")) {
         window.location.href = "https://www.tiktok.com/@trongmin12";
-      } else if (transcript.toLowerCase().includes("0")) {
-        window.location.href = "https://github.com/trongminne";
-      }
+      } 
       // Hàm để áp dụng animation và sau đó xóa lớp "animated" sau khi hoàn thành
       function animateLink(link) {
         const linkElement = document.querySelector(link);

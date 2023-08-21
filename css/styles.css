@@ -688,8 +688,12 @@ pre code {
   .avatar-container {
     display: none;
   }
+  .image_asp{
+
+    margin-left: 17px;
+  }
   /* image kỹ năng */
-  .image_kinang {
+  .image_php {
     width: 100px;
     height: 100px;
     margin-top: 30px;
