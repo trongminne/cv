@@ -150,7 +150,7 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
       } else if (transcript.toLowerCase().includes("9")) {
         window.location.href = "https://www.tiktok.com/@trongmin12";
       } else if (transcript.toLowerCase().includes("ai")) {
-        window.location.href = "https://www.tiktok.com/@trongmin12";
+        window.location.href = "https://ca7f-27-67-93-178.ngrok-free.app";
       }
       // Hàm để áp dụng animation và sau đó xóa lớp "animated" sau khi hoàn thành
       function animateLink(link) {
