@@ -105,7 +105,21 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     // Xử lý khi người dùng nói 'ok' lần đầu để bắt đầu ghi âm
     if (!isRecording && transcript.toLowerCase().includes("hello")) {
       if (!isInitialOk) {
-        alert("Kết nối mic thành công");
+        swal.fire({
+          title: "Thành công",
+          text: "Nhận dạng giọng nói thành công",
+          icon: "success",
+          showConfirmButton: false, // Tắt nút OK
+        });
+
+        // Đặt thời gian độ trễ 0.5s và sau đó ẩn thông báo
+        setTimeout(() => {
+          const swalOverlay = document.querySelector(".swal2-container");
+          if (swalOverlay) {
+            swalOverlay.remove(); // Loại bỏ lớp chứa hộp thoại để ẩn đi
+          }
+        }, 2000);
+
         isInitialOk = true;
       }
       console.log("Bắt đầu ghi âm");
@@ -117,7 +131,20 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
       isRecording = false;
       recordedText = ""; // Reset giá trị recordedText
       recognition.stop(); // Dừng việc nhận diện giọng nói
-      alert("Đã kết thúc ghi âm");
+      swal.fire({
+        title: "Kết thúc",
+        text: "Kết thúc ghi âm",
+        icon: "info",
+        showConfirmButton: false, // Tắt nút OK
+      });
+
+      // Đặt thời gian độ trễ 0.5s và sau đó ẩn thông báo
+      setTimeout(() => {
+        const swalOverlay = document.querySelector(".swal2-container");
+        if (swalOverlay) {
+          swalOverlay.remove(); // Loại bỏ lớp chứa hộp thoại để ẩn đi
+        }
+      }, 2000);
 
     }
     // Xử lý khi đang ghi âm và người dùng nói các từ để chuyển đến liên kết tương ứng
