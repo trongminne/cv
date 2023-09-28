@@ -69,7 +69,10 @@ nav,
 section {
   display: block;
 }
-
+.codepro-trungthu-left{position:fixed;top:0;left:0;width:166px;z-index:9999}
+.codepro-trungthu-right{position:fixed;top:0;right:0;width:166px;z-index:9999}
+.codepro-trungthu-bottom{position:fixed;bottom:-8px;left:0;width:333px;z-index:9999}
+@media(max-width:1024px){.codepro-trungthu-left,.codepro-trungthu-right,.codepro-trungthu-bottom{display:none!important}}
 body {
   margin: 0;
   font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
