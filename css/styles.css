@@ -74,7 +74,8 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 290px;
+  height: 200px;
   z-index: 9999;
 }
 .codepro-trungthu-right {
