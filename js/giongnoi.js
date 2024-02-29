@@ -1,89 +1,3 @@
-/*!
- * Start Bootstrap - Resume v6.0.1 (https://startbootstrap.com/template-overviews/resume)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
- */
-(function ($) {
-  "use strict"; // Start of use strict
-
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-    if (
-      location.pathname.replace(/^\//, "") ==
-        this.pathname.replace(/^\//, "") &&
-      location.hostname == this.hostname
-    ) {
-      var target = $(this.hash);
-      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
-      if (target.length) {
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top,
-          },
-          1000,
-          "easeInOutExpo"
-        );
-        return false;
-      }
-    }
-  });
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $(".js-scroll-trigger").click(function () {
-    $(".navbar-collapse").collapse("hide");
-  });
-
-  // Activate scrollspy to add active class to navbar items on scroll
-  $("body").scrollspy({
-    target: "#sideNav",
-  });
-})(jQuery); // End of use strict
-
-$(document).ready(function () {
-  $(document).keydown(function (event) {
-    // Kiểm tra xem phím Ctrl đã được nhấn cùng lúc
-
-    var targetId = "";
-    // Kiểm tra phím A - Hồ sơ
-    if (event.key === "1") {
-      targetId = "about";
-    }
-    // Kiểm tra phím 2 - Kinh nghiệm
-    else if (event.key === "2") {
-      targetId = "experience";
-    }
-    // Kiểm tra phím 3 - Giáo dục
-    else if (event.key === "3") {
-      targetId = "education";
-    }
-    // Kiểm tra phím 4 - Kỹ năng
-    else if (event.key === "4") {
-      targetId = "skills";
-    }
-    // Kiểm tra phím 5 - Sở thích
-    else if (event.key === "5") {
-      targetId = "interests";
-    }
-    // Kiểm tra phím 6 - Giải thưởng
-    else if (event.key === "6") {
-      targetId = "awards";
-    }
-
-    if (targetId !== "") {
-      // Cuộn đến phần tương ứng
-      var target = $("#" + targetId);
-      if (target.length) {
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top,
-          },
-          1000,
-          "easeInOutExpo"
-        );
-      }
-    }
-  });
-});
 
 // Chuyển tab bằng giọng nói
 let recognition;
@@ -150,22 +64,22 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     // Xử lý khi đang ghi âm và người dùng nói các từ để chuyển đến liên kết tương ứng
     else if (isRecording) {
       recordedText += transcript;
-      if (transcript.toLowerCase().includes("1")) {
+      if (transcript.toLowerCase().includes("thông tin cá nhân")) { 
         window.location.href = "#about";
         animateLink("#about");
-      } else if (transcript.toLowerCase().includes("2")) {
+      } else if (transcript.toLowerCase().includes('kinh nghiệm')) {
         window.location.href = "#experience";
         animateLink("#experience");
-      } else if (transcript.toLowerCase().includes("3")) {
+      } else if (transcript.toLowerCase().includes("giáo dục")) {
         window.location.href = "#education";
         animateLink("#education");
-      } else if (transcript.toLowerCase().includes("4")) {
+      } else if (transcript.toLowerCase().includes("kỹ năng")) {
         window.location.href = "#skills";
         animateLink("#skills");
-      } else if (transcript.toLowerCase().includes("5")) {
+      } else if (transcript.toLowerCase().includes("sở thích")) {
         window.location.href = "#interests";
         animateLink("#interests");
-      } else if (transcript.toLowerCase().includes("6")) {
+      } else if (transcript.toLowerCase().includes("giải thưởng")) {
         window.location.href = "#awards";
         animateLink("#awards");
       } else if (transcript.toLowerCase().includes("7")) {
