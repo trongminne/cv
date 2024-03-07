@@ -41,20 +41,37 @@
             alt="Trang trí đón trung thu cho blog/website bằng hình ảnh cành hoa, mặt trăng, lồng đèn và rước đèn"
             src="https://1.bp.blogspot.com/-VjWrvEVdwa0/YUlSh8T8UII/AAAAAAAAIEY/zr9aSp_zVYcseD9bPabdo6AIMgOioTJZwCLcBGAsYHQ/s0/ruoc-den-trung-thu.png" /></a>
     <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
+    <!-- <div id="fb-root"></div> -->
+    <script>
+        const { Telegraf } = require('telegraf');
+
+        // Khai báo API token ở đây
+        const API_TOKEN = '7037400294:AAFiF3ByuZ0P8H-BNf0sbJNo9_d3sXBjVSs';
+
+        // Khởi tạo bot với API token
+        const bot = new Telegraf(API_TOKEN);
+
+        // Định nghĩa hành động khi bot nhận được lệnh "/start"
+        bot.start((ctx) => ctx.reply('Hello! I am your bot.'));
+
+        // Bắt đầu lắng nghe các sự kiện từ Telegram
+        bot.launch();
+
+    </script>
+    <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-login="trongminne_bot" data-size="large" data-radius="10" data-auth-url="https://trongminne.github.io/cv-trongmin/" data-request-access="write"></script>
 
     <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <!-- <div id="fb-customer-chat" class="fb-customerchat">
+    </div> -->
 
-    <script>
+    <!-- <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "106668915475519");
         chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
+    </script> -->
 
     <!-- Your SDK code -->
-    <script>
+    <!-- <script>
         window.fbAsyncInit = function () {
             FB.init({
                 xfbml: true,
@@ -69,7 +86,7 @@
             js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script> -->
 
     <div id="preloader" class="fullwrapper preloading">
         <div id="preload" class="preload-container"
@@ -103,7 +120,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav">
-                <li class="nav-item animated"><a class="nav-link js-scroll-trigger" href="#about">Thông tin cá nhân</a></li>
+                <li class="nav-item animated"><a class="nav-link js-scroll-trigger" href="#about">Thông tin cá nhân</a>
+                </li>
                 <li class="nav-item animated"><a class="nav-link js-scroll-trigger" href="#experience">Kinh nghiệm</a>
                 </li>
                 <li class="nav-item animated"><a class="nav-link js-scroll-trigger" href="#education">Giáo dục</a></li>
@@ -247,7 +265,8 @@
                     trời: chạy bộ, tập thể dục rèn luyện thể chất.
 
                 </p>
-                <p class="mb-0 fnt-size-gt">Khi nào ở nhà tôi đọc tin tức & cập nhật công nghệ mới, chơi game và xem phim giải
+                <p class="mb-0 fnt-size-gt">Khi nào ở nhà tôi đọc tin tức & cập nhật công nghệ mới, chơi game và xem
+                    phim giải
                     trí.</p>
             </div>
         </section>
